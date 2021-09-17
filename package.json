@@ -1,0 +1,15 @@
+{
+  "name": "cypress_ui_automation",
+  "version": "1.0.0",
+  "description": "cypress_ui_automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "author": "sam pillay",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.4.0",
+    "typescript": "^4.4.3"
+  }
+}
