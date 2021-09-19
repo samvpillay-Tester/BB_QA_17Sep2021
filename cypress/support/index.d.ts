@@ -4,7 +4,7 @@ declare namespace Cypress {
     interface Chainable<Subject> {
         searchComputers({searchText: string}): Chainable<Subject>;
         searchNoResults(): Chainable<Subject>;
-        searchResultsCount({count: number}): Chainable<Subject>;
+        getSearchResultsTotal(): Chainable<Subject>;
         openComputerByName({name: string}): Chainable<Subject>;
 
         popNewComputer({computer: Computer}): Chainable<Subject>;
@@ -17,5 +17,6 @@ declare namespace Cypress {
         editComputer({computer: Computer}): Chainable<Subject>;
 
         deleteComputer(): Chainable<Subject>;
+        deleteFirstNComputers({deleteCount: number}): Chainable<Subject>;
     }
   }

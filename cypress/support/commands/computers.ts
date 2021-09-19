@@ -6,10 +6,12 @@ Cypress.Commands.add('searchComputers', (searchText: string) => {
     cy.get(computersPOM.searchsubmitBtn).click();
 });
 
-Cypress.Commands.add('searchResultsCount', (count: number) => { 
-    // ToDo - add better logic here
-    cy.contains('Displaying ');
-    cy.contains(`of ${count}`);
+Cypress.Commands.add('getSearchResultsTotal', () => { 
+    cy.get(computersPOM.paginationLbl).then(function($elem) {
+        const fullTxt = $elem.text();
+        const total = fullTxt.split(" ").slice(-1)[0];
+        return total;
+   }); 
 });
 
 Cypress.Commands.add('searchNoResults', () => { 

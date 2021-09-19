@@ -19,7 +19,11 @@ describe('Computers CRUD: Update computer entries', function() {
         cy.submitNewComputer();
 
         cy.searchComputers(computer.name);
-        cy.searchResultsCount(1);
+        
+        cy.getSearchResultsTotal().then((totalItems) => {
+            expect(totalItems).to.equal('1');
+        });
+        
         cy.openComputerByName(computer.name);
 
         // Act

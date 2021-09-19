@@ -17,9 +17,7 @@ describe('Computers CRUD: Update computer entries', function() {
         const computer = new Computer();
         cy.popNewComputer(computer);
         cy.submitNewComputer();
-
         cy.searchComputers(computer.name);
-        cy.searchResultsCount(1);
         cy.openComputerByName(computer.name);
 
         const edittedComputer = new Computer(`editted_${Date.now()}`)
@@ -29,7 +27,11 @@ describe('Computers CRUD: Update computer entries', function() {
 
         // Assert
         cy.searchComputers(edittedComputer.name);
-        cy.searchResultsCount(1);
+        
+        cy.getSearchResultsTotal().then((totalItems) => {
+            expect(totalItems).to.equal('1');
+        });
+        
         cy.openComputerByName(edittedComputer.name);
         cy.computerValuesCorrect(edittedComputer);
     });

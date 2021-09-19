@@ -8,7 +8,7 @@ import { pageNameEnum } from '../../support/enums/pageNameEnum';
 describe('Computers CRUD: Create and Read computer entries', function() {
 
     beforeEach(() => {
-        cy.visit(pageNameEnum.computers)
+        cy.visit(pageNameEnum.computers);
     });
 
     it('Cannot create computer without all the required data', () => {
@@ -34,7 +34,11 @@ describe('Computers CRUD: Create and Read computer entries', function() {
 
         // 2 Acts, due to lack of data setup via API
         cy.searchComputers(computer.name);
-        cy.searchResultsCount(1);
+
+        cy.getSearchResultsTotal().then((totalItems) => {
+            expect(totalItems).to.equal('1');
+        });
+        
         cy.openComputerByName(computer.name);
 
         // Assert

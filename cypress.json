@@ -1,3 +1,5 @@
 {
-    "baseUrl": "https://computer-database.herokuapp.com/"
+    "baseUrl": "https://computer-database.herokuapp.com/",
+
+    "redirectionLimit": 10000
 }
