@@ -1,11 +1,11 @@
 /// <reference types="cypress" />
 import {} from '../../support/commands/computers';
 import {} from '../../support/commands/createComputer';
-import {} from '../../support/commands/editComputer';
+import {} from '../../support/commands/readComputer';
 import { Computer } from '../../support/domain/computer';
 import { pageNameEnum } from '../../support/enums/pageNameEnum';
 
-describe('Computers CRUD: Create and Read computer entries', function() {
+describe('Computers CRUD: Create computer entries', function() {
 
     beforeEach(() => {
         cy.visit(pageNameEnum.computers);
@@ -26,7 +26,7 @@ describe('Computers CRUD: Create and Read computer entries', function() {
         cy.searchNoResults();
     });
 
-    it('Can create new computer and read new computer', () => {
+    it('Can create new computer', () => {
         // Arrange
         const computer = new Computer();
         cy.popNewComputer(computer);
@@ -42,6 +42,6 @@ describe('Computers CRUD: Create and Read computer entries', function() {
         cy.openComputerByName(computer.name);
 
         // Assert
-        cy.computerValuesCorrect(computer);
+        cy.assertOnComputerValues(computer);
     });
 })

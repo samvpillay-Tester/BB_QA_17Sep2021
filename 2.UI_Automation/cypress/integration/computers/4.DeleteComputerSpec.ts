@@ -1,11 +1,11 @@
 /// <reference types="cypress" />
+import {} from '../../support/api/create';
 import {} from '../../support/commands/computers';
-import {} from '../../support/commands/createComputer';
 import {} from '../../support/commands/deleteComputer';
 import { Computer } from '../../support/domain/computer';
 import { pageNameEnum } from '../../support/enums/pageNameEnum';
 
-describe('Computers CRUD: Update computer entries', function() {
+describe('Computers CRUD: Delete computer entries', function() {
 
     beforeEach(() => {
         cy.visit(pageNameEnum.computers)
@@ -15,8 +15,7 @@ describe('Computers CRUD: Update computer entries', function() {
     it('Can delete computer', () => {
         // Arrange
         const computer = new Computer();
-        cy.popNewComputer(computer);
-        cy.submitNewComputer();
+        cy.requestNewComputer(computer);
 
         cy.searchComputers(computer.name);
         
