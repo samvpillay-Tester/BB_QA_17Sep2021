@@ -2,6 +2,8 @@ import { Computer } from '../support/domain/computer';
 
 declare namespace Cypress {
     interface Chainable<Subject> {
+        requestNewComputer({computer: Computer}): Chainable<Subject>;
+
         searchComputers({searchText: string}): Chainable<Subject>;
         searchNoResults(): Chainable<Subject>;
         getSearchResultsTotal(): Chainable<Subject>;
