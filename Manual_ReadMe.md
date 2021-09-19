@@ -197,7 +197,7 @@ This exception has been logged with id 7l4ienleo.
 Retest status: Pass - this was not replicated later, even after using letters for the value
 A validation error highlight was shown on using characters, but the application seemed to accept large numbers for the value \ or showed validation for very high numbers
 
-### Test cases written after test submission (but noticed durIng manual testing)
+### Test cases written after test submission (but noticed durIng manual testing) 008a & 008b
 ### UI automation was written for https, otherwise unsecured browsing should have been tested there
 
 ### Test Case ID: #BB_QA_Test_008a
@@ -242,6 +242,8 @@ Actual Results: User is shown site data and is able to load content \ browse ins
 -Candidate for automation to ensure:
 --The site does not allow browsing over http, by always redirecting to https
 --No content is served via http (there is no mixture of http and https)
+
+### New test cases written after test submission (Tests 009 and 010 not originally noticed)
 
 ### Test Case ID: #BB_QA_Test_009
 Test Scenario: Test display of long computer name
