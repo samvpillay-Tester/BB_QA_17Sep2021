@@ -14,5 +14,4 @@ No real tests included for the main screen
 -beyond searching for specific computers
 
 ### Tests do not currently include:
--Data creation via a currently exposed POST end point to reduce reliance on UI interactions
 -Cleanup of test data (again, due to lack of knowledge on any available API for data cleansing)
