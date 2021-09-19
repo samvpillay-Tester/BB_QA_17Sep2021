@@ -12,3 +12,9 @@ Original UI_Automation carried out in Cypress
 along with manual test case details 
 following requirements 1# & #2, please refer to:
 ./2.UI_Automation/ReadMe.md
+
+### 3.API_Automation
+Postman based API testing 
+(Newman CLI script not added \ not available on this box for me to test)
+Two environment files, one for secure requests, one for insecure 
+(rather than deployment environment related)

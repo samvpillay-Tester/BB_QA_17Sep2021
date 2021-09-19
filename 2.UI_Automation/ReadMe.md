@@ -14,7 +14,5 @@ No real tests included for the main screen
 -beyond searching for specific computers
 
 Tests do not currently include:
--Data creation via any form of API to reduce reliance on UI interactions
--Cleanup of test data (again, due to the lack of API for data handling)
--API traffic visible in the network tab and could potentially be reverse engineered?
--- e.g. POST to http://computer-database.herokuapp.com/computers
+-Data creation via a currently exposed POST end point to reduce reliance on UI interactions
+-Cleanup of test data (again, due to lack of knowledge on any available API for data cleansing)

@@ -299,11 +299,11 @@ For request 'GET /{pageName\path}'
 Test Scenario: API Request - create data
 Test Steps: (run API request, browse data) 
 The tester opens Postman collection 
--3.API_Automation\BB_QA_CRUD-collection.json
+-3.API_Automation\BB_QA_CRUD.postman_collection.json
 The tester selects the require environment file
--BB_QA_CRUD-Insecure_Requests-env.json
--BB_QA_CRUD-Secure_Requests-env.json
-The tester selects request
+-3.API_Automation\BB_QA_CRUD-Insecure_Requests.postman_environment.json
+-3.API_Automation\BB_QA_CRUD-Secure_Requests.postman_environment.json
+The tester selects a request
 -Create New Item - Name Only
 -Create New Item - All Properties
 (Optional) The tester amends any property in the request body
