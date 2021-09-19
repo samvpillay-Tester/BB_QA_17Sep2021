@@ -1,3 +1,5 @@
+import '../support/api/create';
+
 import './commands/computers';
 import './commands/createComputer';
 import './commands/readComputer';

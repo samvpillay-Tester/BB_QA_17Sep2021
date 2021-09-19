@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
+import {} from '../../support/api/create';
 import {} from '../../support/commands/computers';
-import {} from '../../support/commands/createComputer';
 import {} from '../../support/commands/updateComputer';
 import { Computer } from '../../support/domain/computer';
 import { pageNameEnum } from '../../support/enums/pageNameEnum';
@@ -15,8 +15,8 @@ describe('Computers CRUD: Update computer entries', function() {
     it('Can update computer', () => {
         // Arrange
         const computer = new Computer();
-        cy.popNewComputer(computer);
-        cy.submitNewComputer();
+        cy.requestNewComputer(computer);
+
         cy.searchComputers(computer.name);
         cy.openComputerByName(computer.name);
 

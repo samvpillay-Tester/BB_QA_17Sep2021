@@ -14,8 +14,7 @@ describe('Computers CRUD: Read computer entries', function() {
     it('Can read new computer', () => {
         // Arrange
         const computer = new Computer();
-        cy.popNewComputer(computer);
-        cy.submitNewComputer();
+        cy.requestNewComputer(computer);
 
         // 2 Acts, due to lack of data setup via API
         cy.searchComputers(computer.name);
@@ -23,7 +22,7 @@ describe('Computers CRUD: Read computer entries', function() {
         cy.getSearchResultsTotal().then((totalItems) => {
             expect(totalItems).to.equal('1');
         });
-        
+
         cy.openComputerByName(computer.name);
 
         // Assert

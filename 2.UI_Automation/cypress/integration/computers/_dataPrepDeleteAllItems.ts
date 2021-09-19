@@ -10,7 +10,7 @@ describe('_Computers CRUD: Data Setup', function() {
 
     it('Wipe all the existing data', () => {
         cy.getSearchResultsTotal().then((totalItems) => {
-            cy.deleteFirstNComputers(totalItems);
+            cy.deleteFirstNComputers(1);
         });     
     });
 })
