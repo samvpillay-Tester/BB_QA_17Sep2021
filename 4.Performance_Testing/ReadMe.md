@@ -34,7 +34,7 @@ $ k6 run dist/spike.js
 $ k6 run dist/stress.js
 ```
 
-### Transpiling and Bundling
+## Transpiling and Bundling
 
 By default, k6 can only run ES5.1 JavaScript code. To use TypeScript, we have to set up a bundler that converts TypeScript to JavaScript code. 
 

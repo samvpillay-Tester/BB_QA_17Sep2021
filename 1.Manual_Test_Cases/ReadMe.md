@@ -1,13 +1,13 @@
-### #1 Create test cases that cover the CRUD operations plus any identified edge cases. 
+# #1 Create test cases that cover the CRUD operations plus any identified edge cases. 
 -Make sure you give the appropriate level of instructions for each test case. 
 -You can use any format and approach you want. 
 A short explanation regarding your test approach is to be provided along with the test cases.
 
-### All test cases to be performed with the pre-requisites:
+## All test cases to be performed with the pre-requisites:
 Browser: Any supported desktop device and browser - fullscreen (ToDo - define min\max resolution)
 (Mobile \ responsive test cases not included here)
 
-### Test approach (partly included in ../2.UI_Automation/ReadMe.md)
+## Test approach (partly included in ../2.UI_Automation/ReadMe.md)
 Contrary to the test instructions, the automation was carried out first.
 --Exploratory testing helped define minimum CRUD functionality for automation testing
 --Difficultly of automation assessed for what could be more beneficial as manual testing
