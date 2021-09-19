@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 import {} from '../../support/commands/computers';
 import {} from '../../support/commands/createComputer';
-import {} from '../../support/commands/editComputer';
+import {} from '../../support/commands/updateComputer';
 import { Computer } from '../../support/domain/computer';
 import { pageNameEnum } from '../../support/enums/pageNameEnum';
 
@@ -23,7 +23,7 @@ describe('Computers CRUD: Update computer entries', function() {
         const edittedComputer = new Computer(`editted_${Date.now()}`)
 
         // Act
-        cy.editComputer(edittedComputer);
+        cy.updateComputer(edittedComputer);
 
         // Assert
         cy.searchComputers(edittedComputer.name);
@@ -33,6 +33,6 @@ describe('Computers CRUD: Update computer entries', function() {
         });
         
         cy.openComputerByName(edittedComputer.name);
-        cy.computerValuesCorrect(edittedComputer);
+        cy.assertOnComputerValues(edittedComputer);
     });
 })
