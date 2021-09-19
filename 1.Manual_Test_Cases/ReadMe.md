@@ -7,7 +7,7 @@ A short explanation regarding your test approach is to be provided along with th
 Browser: Any supported desktop device and browser - fullscreen (ToDo - define min\max resolution)
 (Mobile \ responsive test cases not included here)
 
-### Test approach (partly included in Code_ReadMe.md)
+### Test approach (partly included in ../2.UI_Automation/ReadMe.md)
 Contrary to the test instructions, the automation was carried out first.
 --Exploratory testing helped define minimum CRUD functionality for automation testing
 --Difficultly of automation assessed for what could be more beneficial as manual testing
@@ -193,7 +193,7 @@ Oops, an error occured
 This exception has been logged with id 7l4ienleo. 
 (up to 7l4ig3m1o for the repeated refresh)
 ### Note - spelling mistake for 'occured' - does not appear to be a 'localisation' issue?
-- Test Status – Pass/Fail: Fail
+- Test Status – Pass/Fail: Fail (first time only?)
 Retest status: Pass - this was not replicated later, even after using letters for the value
 A validation error highlight was shown on using characters, but the application seemed to accept large numbers for the value \ or showed validation for very high numbers
 
@@ -298,11 +298,12 @@ For request 'GET /{pageName\path}'
 ### Test Case ID: #BB_QA_Test_0011
 Test Scenario: API Request - create data
 Test Steps: (run API request, browse data) 
-The tester opens Postman collection BB_QA_CRUD-test-suite
+The tester opens Postman collection 
+-3.API_Automation\BB_QA_CRUD.postman_collection.json
 The tester selects the require environment file
--BB_QA_CRUD-Insecure_Requests
--BB_QA_CRUD-Secure_Requests
-The tester selects request
+-3.API_Automation\BB_QA_CRUD-Insecure_Requests.postman_environment.json
+-3.API_Automation\BB_QA_CRUD-Secure_Requests.postman_environment.json
+The tester selects a request
 -Create New Item - Name Only
 -Create New Item - All Properties
 (Optional) The tester amends any property in the request body

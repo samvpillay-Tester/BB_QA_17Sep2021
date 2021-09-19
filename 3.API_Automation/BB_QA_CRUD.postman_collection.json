@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "ab71f180-a5e2-4563-9497-39835f24cd1d",
+		"name": "BB_QA_CRUD-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"item": [
+				{
+					"name": "Create New Item - Name Only",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const computerName = pm.variables.replaceIn('{{$guid}}');\r",
+									"pm.environment.set(\"computerName\", computerName);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('POST request to create item should have status 200 OK', function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// HTML is return rather than an API reposnse?\r",
+									"pm.test('POST request to create item should have status 200 OK', function () {\r",
+									"    const computerName = pm.environment.get(\"computerName\");\r",
+									"    const computerCreateMsg = `Computer ${computerName} has been created`\r",
+									"\r",
+									"    pm.expect(pm.response.text()).to.include(computerCreateMsg);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{computerName}}\",\r\n    \"introduced\": \"\",\r\n    \"discontinued\": \"\",\r\n    \"company\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}computers",
+							"host": [
+								"{{baseUrl}}computers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Item - All Properties",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const computerName = pm.variables.replaceIn('{{$guid}}');\r",
+									"pm.environment.set(\"computerName\", computerName);\r",
+									"\r",
+									"const date = new Date().toISOString().split('T')[0];\r",
+									"pm.environment.set(\"date\", date);\r",
+									"console.log(pm.environment.get(\"date\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('POST request to create item should have status 200 OK', function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// HTML is return rather than API reposnse?\r",
+									"pm.test('POST request to create item should have status 200 OK', function () {\r",
+									"    const computerName = pm.environment.get(\"computerName\");\r",
+									"    const computerCreateMsg = `Computer ${computerName} has been created`\r",
+									"\r",
+									"    pm.expect(pm.response.text()).to.include(computerCreateMsg);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{computerName}}\",\r\n    \"introduced\": \"{{date}}\",\r\n    \"discontinued\": \"{{date}}\",\r\n    \"company\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}computers",
+							"host": [
+								"{{baseUrl}}computers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Read - API request not yet known",
+			"item": []
+		},
+		{
+			"name": "Update - API request not yet known",
+			"item": []
+		},
+		{
+			"name": "Delete - API request not yet known",
+			"item": []
+		}
+	]
+}
