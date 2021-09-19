@@ -325,6 +325,8 @@ Actual Results: As expected
 ### Test Case ID: #BB_QA_Test_0012
 Test Scenario: ZAP Proxy - attack site
 Test Steps: (run ZAP Proxy only) 
+(Optional step) Clear down most of the data via 
+-UI_Automation Spec file: _dataPrepDeleteAllItems.ts
 The tester opens the ZAP Proxy GUI
 The tester selects Automated test
 The tester enters the 'URL to attack'
@@ -393,3 +395,22 @@ Expected/Intended Results: Tester is either able to run the script(s) successful
 or is able to deliverately overwhelm the system (with approval to do so)
 Actual Results: Tests only carried out at low levels
 - Test Status – Pass/Fail: Incomplete
+
+### Test Case ID: #BB_QA_Test_0014
+Test Scenario: Undertake security re-testing of risks identified from alerts
+Test Steps: (On-demand manual security testing for identified medium and high level alerts)
+
+-Only when required to do so and when a security patch is available for testing
+(Optional step) Clear down most of the data via 
+-UI_Automation Spec file: _dataPrepDeleteAllItems.ts
+The tester follows the instruction in the ReadMe file to execute the required script(s)
+  .\5.Security_Testing\ReadMe.md
+The tester executes the required script(s) individually 
+and reports back with the results on completion
+
+Prerequisites: ZAP Proxy installed. ZAP Proxy script(s) from the the SecOps \ Application Security team
+
+Test Data: Previous security vulnerability report for known alerts
+Expected/Intended Results: Tester is unable to see the related alert following the require security patch(es)
+Actual Results: Script results include: <alert>X-Frame-Options Header Not Set</alert>
+- Test Status – Pass/Fail: Fail (no patch deployed or detected)
