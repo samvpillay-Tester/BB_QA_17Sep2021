@@ -18,6 +18,8 @@ declare namespace Cypress {
 
         // Create API request
         requestNewComputer({computer: Computer}): Chainable<Subject>;
+        mapCompanyNameToId({companyName: string}): Chainable<Subject>;
+
 
         // Read
         assertOnComputerValues({computer: Computer}): Chainable<Subject>;

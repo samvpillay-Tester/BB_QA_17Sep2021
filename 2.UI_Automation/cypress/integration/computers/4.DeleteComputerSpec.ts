@@ -5,7 +5,7 @@ import {} from '../../support/commands/deleteComputer';
 import { Computer } from '../../support/domain/computer';
 import { pageNameEnum } from '../../support/enums/pageNameEnum';
 
-describe('Computers CRUD: Update computer entries', function() {
+describe('Computers CRUD: Delete computer entries', function() {
 
     beforeEach(() => {
         cy.visit(pageNameEnum.computers)
