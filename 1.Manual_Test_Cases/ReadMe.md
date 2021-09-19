@@ -374,3 +374,22 @@ Actual Results: User is shown a less friendly error for:
 Action not found
 For request 'GET /{pageName\path}'
 - Test Status – Pass/Fail: Fail
+
+### Test Case ID: #BB_QA_Test_0014
+Test Scenario: Undertake performance testing
+Test Steps: (note of caution on risk of running the tests)
+
+The tester follows required performance testing criteria to amend the options of the scripts in:
+ .\4.Performance_Testing\src\tests
+The tester follows the instruction in the ReadMe file to transpile the scripts to .js
+  .\4.Performance_Testing\ReadMe.md
+The tester executes the required scripts individually 
+and reports back with the results on completion
+
+Prerequisites: k6 installed, as per above ReadMe file 
+
+Test Data: Required Performance Criteria
+Expected/Intended Results: Tester is either able to run the script(s) successfully,
+or is able to deliverately overwhelm the system (with approval to do so)
+Actual Results: Tests only carried out at low levels
+- Test Status – Pass/Fail: Incomplete
