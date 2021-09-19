@@ -269,10 +269,92 @@ Actual Results: User is shown the full string for the computer name and the scre
 - Test Status – Pass/Fail: Fail
 
 ### Test Case ID: #BB_QA_Test_0010
-Test Scenario: Invalid URLs \ non-existing pages - are handled gracefully
+Test Scenario: Invalid page id handling
+Test Steps: (browsing only, multiple assertions to check during test execution)
+The user browses to 'https://computer-database.herokuapp.com/computers'
+The site displays the '<- Previous' button as disabled
+The site displays the 'Next ->' button as enabled
+The user clicks the next button once
+The site displays the '<- Previous' button as enabled
+The site displays the 'Next ->' button as enabled
+The site url now includes the parameter p=1
+The user clicks the next button repeatedly until the last page is reached
+The site incremented the parameter p for every click of 'Next ->'
+The site now displays the '<- Previous' button as enabled
+The site now displays the 'Next ->' button as disabled
+The user is no longer able to use the 'Next ->' button to browse further pages
+The user amends the parameter p to a higher value of 10000000000 (or -10000000000 ) and browses to that URL
+The site refreshes to show no data and the message 'Nothing to display'
+
+Prerequisites: None
+
+Test Data: None
+Expected/Intended Results: User is unable to view data for pages which do not exist and a friend message is shown
+Actual Results: User is shown a less friendly error for:
+For request 'GET /computers?p=-10000000000' [Cannot parse parameter p as Int: For input string: "-10000000000"]
+For request 'GET /{pageName\path}'
+- Test Status – Pass/Fail: Fail (passes for lower values, boundary limit not yet defined)
+
+### Test Case ID: #BB_QA_Test_0011
+Test Scenario: API Request - create data
+Test Steps: (run API request, browse data) 
+The tester opens Postman collection BB_QA_CRUD-test-suite
+The tester selects the require environment file
+-BB_QA_CRUD-Insecure_Requests
+-BB_QA_CRUD-Secure_Requests
+The tester selects request
+-Create New Item - Name Only
+-Create New Item - All Properties
+(Optional) The tester amends any property in the request body
+The tester clicks the 'Send' button to submit the request
+The tester can see the response has completed successfully and all pm.test have passed
+The user can see a message in the return HTML for "Computer {ComputerName} has been created"
+The user browses to {baeUrl}/computers?f={ComputerName}
+The site returns one or more entries with the {ComputerName}
+
+Prerequisites: Postman installed or Newman, if running the above via CLI
+
+Test Data: 
+Expected/Intended Results: User able to create data in the API 
+(is this actaully desired \ should it be blocked?) 
+and can view that data on the site
+Actual Results: As expected
+-Test Status – Pass/Fail: Pass
+
+### Test Case ID: #BB_QA_Test_0012
+Test Scenario: ZAP Proxy - attack site
+Test Steps: (run ZAP Proxy only) 
+The tester opens the ZAP Proxy GUI
+The tester selects Automated test
+The tester enters the 'URL to attack'
+-insecure URL: http://computer-database.herokuapp.com/
+-secure URL: https://computer-database.herokuapp.com/
+The tester keeps the option 'Use traditional spider'
+The user clicks the 'Attack' button and waits for the active scan to finish
+The user checks the alerts and see no results (or only low results, TBC)
+
+Prerequisites: ZAP Proxy installed
+
+Test Data: 
+Expected/Intended Results: User unable to see any alert once the attack has completed
+Actual Results: User is shown a number of alerts with counts (from 19,924 requests):
+Medium Risk:
+X-Frame-Options Header Not Set (83)
+Low Risk (TBC if this fails this test):
+Absence of Anti-CSRF Tokens (192)
+Cookie without SameSite Attribute (31)
+X-Content-Type-Options Header Missing (85)
+- Test Status – Pass/Fail: Fail
+
+### Test Case ID: #BB_QA_Test_0013
+Test Scenario: Invalid URLs \ non-existing pages - are handled gracefully, user also unable to access site level files
 Test Steps: (browsing only)
 The user browses to 'http://computer-database.herokuapp.com/computers'
-The user attempts to find the index page or the site from various possible files
+The user attempts to find the index page or the site from various possible files 
+(ZAP Proxy Automate Test - Spider report and any of the below examples)
+ /sitemap.xml
+ /robots.txt
+
  /index.htm
  /index.html
  /index.asp
@@ -285,8 +367,8 @@ The site does not redirect or otherwise display the invalid URL \ page
 
 Prerequisites: None
 
-Test Data: None
-Expected/Intended Results: User unable to view the index, or other pages listed in test steps 008a\b
+Test Data: (Optional) ZAP Proxy Automate Test - Spider report
+Expected/Intended Results: User unable to view the index, or other pages listed in test steps 008a\b - with friendly error message
 Actual Results: User is shown a less friendly error for:
 Action not found
 For request 'GET /{pageName\path}'
