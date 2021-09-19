@@ -15,7 +15,7 @@ Cypress.Commands.add('getSearchResultsTotal', () => {
 });
 
 Cypress.Commands.add('searchNoResults', () => { 
-    cy.contains('Nothing to display');
+    cy.contains(computersPOM.noDataText);
 });
 
 Cypress.Commands.add('openComputerByName', (name: string) => { 
