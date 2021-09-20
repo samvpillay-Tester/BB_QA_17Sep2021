@@ -11,6 +11,8 @@ Original UI_Automation carried out in Cypress
 along with manual test case details 
 following requirements 1# & #2, please refer to:
 ./2.UI_Automation/ReadMe.md
+### 2.UI_Automation Configuration
+Data wipe toggled via Cypress config enableDataWIpe
 
 ### Liberty has been taken with the generous criteria of
 ### Create test cases that cover the CRUD operations plus any identified edge cases

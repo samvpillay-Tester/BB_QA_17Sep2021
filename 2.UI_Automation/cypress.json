@@ -1,5 +1,10 @@
 {
     "baseUrl": "https://computer-database.herokuapp.com/",
 
-    "redirectionLimit": 10000
+    "redirectionLimit": 10000,
+
+    "env": {
+        "enableDataWIpe": false
+    }
+    
 }
