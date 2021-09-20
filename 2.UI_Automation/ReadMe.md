@@ -13,5 +13,8 @@ Include validation and minimal search result testing
 No real tests included for the main screen 
 -beyond searching for specific computers
 
+## Configuration
+Data wipe toggled via Cypress config enableDataWIpe
+
 ### Tests do not currently include:
 -Cleanup of test data (again, due to lack of knowledge on any available API for data cleansing)
